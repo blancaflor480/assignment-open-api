@@ -5,11 +5,11 @@ import { NasaService } from './nasa.service';
 export class NasaController {
   constructor(private readonly nasaService: NasaService) {}
 
-  @Get('mars-photos')
-  getMarsRoverPhotos(
-    @Query('rover') rover?: string,
-    @Query('sol') sol?: number,
+  @Get('neo-feed')
+  getNeoFeed(
+    @Query('start_date') startDate: string,
+    @Query('end_date') endDate: string,
   ) {
-    return this.nasaService.getMarsRoverPhotos(rover, sol);
+    return this.nasaService.getNeoFeed(startDate, endDate);
   }
 }
